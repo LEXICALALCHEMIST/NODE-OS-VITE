@@ -1,7 +1,7 @@
 // src/os-components/coreSelect/coreSelect.js — Core navigation hub
 
 import burn from '../../utils/burn.js';  // Clear root
-import VaporView from '../../views/vapor/vaporView.js';  // Add other views later
+import VaporView from '../../views/naxus/vaporView.js';  // Add other views later
 
 export default function CoreSelect() {
   const container = document.createElement('div');

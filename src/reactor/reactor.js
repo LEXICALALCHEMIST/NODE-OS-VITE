@@ -2,8 +2,8 @@
 import { APP_CATALOG } from './appIndex.js';
 import { Matrix } from '../core/ZMXENO/gate/matrix.js';
 
-console.log('Matrix class imported:', Matrix);
-
+console.log('ADAPT');
+ console.log('%cXENO: MATRIX(GPI) : Gate:Open Path:NonPar Imprint:sleep', 'color: #ff0044; background: white; font-size: 10PX; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-shadow: 0 0 10px #ff0044;');
 // Create shared Xeno instance ONCE (available to all Skins)
 const xenoMatrix = new Matrix();
 window.xenoMatrix = xenoMatrix;
