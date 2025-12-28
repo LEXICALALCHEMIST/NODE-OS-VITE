@@ -51,7 +51,7 @@ function Boot() {
   'color: aqua; background: #111; font-size: 12px; font-weight: bold; padding: 4px 8px; border-left: 4px solid grey;',
   'color: aqua; background: #111; font-size: 10px; padding: 3px 8px 3px 24px;',
   'color: aqua; background: #111; font-size: 10px; padding: 3px 8px 6px 24px; font-style: italic;'
-);
+  );
 
   const bootLog = [];
 

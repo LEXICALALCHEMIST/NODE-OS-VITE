@@ -2,6 +2,8 @@
 
 import burn from '../../utils/burn.js';  // Clear root
 import VaporView from '../../views/naxus/vaporView.js';  // Add other views later
+import CardLabel from '../cardLabel/cardLabel.js';  // Import CardLabel
+
 
 export default function CoreSelect() {
   const container = document.createElement('div');
@@ -27,7 +29,7 @@ export default function CoreSelect() {
     justify-content: center;
   `;
 
-  const buttons = ['VAPOR', 'SETTING', 'DOCUMENTS', 'EXTENSIONS'];
+  const buttons = ['NAXUS', 'SETTING', 'DOCUMENTS', 'EXTENSIONS'];
 
   buttons.forEach(label => {
     const btn = document.createElement('div');
@@ -43,7 +45,7 @@ export default function CoreSelect() {
       if (!root) return;
 
       let view;
-      if (label === 'VAPOR') {
+      if (label === 'NAXUS') {
         view = VaporView();
       } else {
         // Placeholder for other views

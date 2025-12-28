@@ -21,13 +21,8 @@ export default function NODEOS() {
 
   // Status lines
   const status1 = document.createElement('h4');
-  status1.textContent = 'ALLMIND : port3000: ONLINE';
+  status1.textContent = 'ALLMIND => [port3000: ONLINE]';
   mainView.appendChild(status1);
-
-  const status2 = document.createElement('p');
-  status2.className = 'small';
-  status2.textContent = 'INSTANT LOGIC STREAM';
-  mainView.appendChild(status2);
 
   // Inject CoreMenu — the navigation hub
   const coreMenu = CoreMenu();

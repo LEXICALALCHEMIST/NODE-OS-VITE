@@ -5,7 +5,7 @@ export const APP_CATALOG = [
     id: "calc-001",
     name: "Calculator",
     icon: "▣",
-    hub: "http://localhost:3000/apps/calculator/calculator_os.js",
+    hub: "http://localhost:3000/apps/calculator/calculator_os_main.js",
     componentName: "CalculatorSkin"  // Exact global name from remote script
   },
   {

@@ -1,8 +1,9 @@
-// src/views/vapor/vapor.js — VAPOR view with app catalog menu
+// src/views/vapor/vapor.js — NAXUS view with CardLabel title + app catalog
 
 import burn from '../../utils/burn.js';  // Burn root first
 import { APP_CATALOG } from '../../reactor/appIndex.js';  // Catalog
 import { spawnApp } from '../../reactor/reactor.js';     // Spawner
+import CardLabel from '../../os-components/cardLabel/cardLabel.js';  // Import CardLabel
 
 export default function VaporView() {
   burn();  // Clear root for clean injection
@@ -17,13 +18,14 @@ export default function VaporView() {
     text-align: center;
   `;
 
-  const title = document.createElement('h1');
-  title.textContent = 'VAPOR';
-  title.style.cssText = 'font-size: 3rem; text-shadow: 0 0 30px aqua; border-bottom: 2px solid aqua;';
+  // Use CardLabel instead of manual h2
+  const titleCard = CardLabel('NAXUS - ALLMIND');  // Pass title text
+  view.appendChild(titleCard);
 
   const subtitle = document.createElement('p');
-  subtitle.textContent = 'Logic Streaming Platform';
+  subtitle.textContent = '';
   subtitle.style.cssText = 'font-size: 12px; margin: 10px 0;';
+  view.appendChild(subtitle);
 
   // The app catalog card
   const card = document.createElement('div');
@@ -40,7 +42,7 @@ export default function VaporView() {
   // Map catalog to app tiles
   APP_CATALOG.forEach(app => {
     const tile = document.createElement('div');
-    tile.className = 'os_btn';  // Reuse your button style
+    tile.className = 'os_btn';
     tile.style.cssText = `
       width: 90px;
       height: 60px;
@@ -61,17 +63,16 @@ export default function VaporView() {
     tile.appendChild(icon);
     tile.appendChild(name);
 
-    // Click to spawn app
     tile.addEventListener('click', () => {
-      console.log(`%cVAPOR → Spawning ${app.name} (${app.id})`, 'color: aqua; font-weight: bold;');
+      console.log('%cREACTOR: SPAWN APP -> ' + app.name, 
+        'color: aqua; background: #111; font-size: 12px; font-weight: bold; padding: 4px 8px; border-left: 4px solid grey;'
+      );
       spawnApp(app.id);
     });
 
     card.appendChild(tile);
   });
 
-  view.appendChild(title);
-  view.appendChild(subtitle);
   view.appendChild(card);
 
   return view;
