@@ -1,9 +1,11 @@
 // src/integration/reactor.js — PURE DOM SPAWN ONLY (no React confusion)
 import { APP_CATALOG } from './appIndex.js';
 import { Matrix } from '../core/ZMXENO/gate/matrix.js';
+import burn from '../utils/burn.js';           // Burn utility
+import VaporView from '../views/naxus/vaporView.js';  // Main hub view
 
 console.log('ADAPT');
- console.log('%cXENO: MATRIX(GPI) : Gate:Open Path:NonPar Imprint:sleep', 'color: #ff0044; background: white; font-size: 10PX; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-shadow: 0 0 10px #ff0044;');
+console.log('%cXENO: MATRIX(GPI) : Gate:Open Path:NonPar Imprint:sleep', 'color: #ff0044; background: white; font-size: 10PX; font-weight: bold; padding: 2px 6px; border-radius: 4px; text-shadow: 0 0 10px #ff0044;');
 // Create shared Xeno instance ONCE (available to all Skins)
 const xenoMatrix = new Matrix();
 window.xenoMatrix = xenoMatrix;
@@ -46,3 +48,33 @@ export const spawnApp = async (appId) => {
     document.head.appendChild(script);
   });
 };
+
+// In reactor.js — message bridge (future privileged ops)
+  window.addEventListener('message', (e) => {
+    // TEMP: Allow all origins for local dev
+    // Later: const allowedOrigins = ['http://localhost:3000', 'https://yourdomain.com'];
+    // if (!allowedOrigins.includes(e.origin)) return;
+
+    const msg = e.data;
+    if (msg.op === 'saveFile' && msg.path && msg.data) {
+      console.log('%cREACTOR BRIDGE → saveFile request', 'color: yellow;', msg);
+      // Future: privileged fs access here
+      // For now: just acknowledge
+      e.source.postMessage({ ok: true, id: msg.id, note: 'bridge ready (fs not implemented)' });
+    }
+  });
+
+  // NEW: KILL function — exposed to all skins
+  function killApp() {
+    console.log('%cKILL COMMAND — App terminated', 'color: #ff0044; font-weight: bold; background: #000; padding: 6px 12px; border-radius: 6px;');
+    burn();  // Burn root
+    // Re-inject VaporView (the hub)
+    const vapor = VaporView();
+    const root = document.getElementById('root');
+    if (root) {
+      root.appendChild(vapor);
+    }
+    console.log('%cVAPOR VIEW — Re-injected as safe hub', 'color: aqua; font-weight: bold;');
+  }
+
+window.killApp = killApp;

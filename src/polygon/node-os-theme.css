@@ -162,8 +162,6 @@ body.lattice::before {
   text-shadow: 0 0 10px #ff0044;
   font-family: monospace;
 }
-
-
 /* UI / COMPONENTS — Core reusable styles */
 
 /* UI / COMPONENTS — Reusable card container */
@@ -175,10 +173,10 @@ body.lattice::before {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid #00ff9f22;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 255, 159, 0.15);
+  box-shadow: 0 0 30px rgba(0, 255, 234, 0.15);
 }
 /* Core button — small, mint/aqua glow, monospace */
 .os_btn {
@@ -188,12 +186,12 @@ body.lattice::before {
   padding: 10px 20px;
   text-align: center;
   cursor: pointer;
-  border: 1px solid #00ffff44; /* aqua with transparency */
+  border: 1px solid aqua; /* aqua with transparency */
   border-radius: 6px;
   background: #000;
   min-width: 100px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 255, 159, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 242, 0.2);
 }
 
 /* Hover state for coreBtn */

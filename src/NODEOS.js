@@ -15,14 +15,14 @@ export default function NODEOS() {
   mainView.className = 'os_view';
 
   // Title
-  const title = document.createElement('h3');
+  const title = document.createElement('h2');
   title.textContent = 'NODE | OS';
   mainView.appendChild(title);
 
   // Status lines
-  const status1 = document.createElement('h4');
-  status1.textContent = 'ALLMIND => [port3000: ONLINE]';
-  mainView.appendChild(status1);
+  //const status1 = document.createElement('h4');
+  //status1.textContent = 'ALLMIND => [port3000: ONLINE]';
+  //mainView.appendChild(status1);
 
   // Inject CoreMenu — the navigation hub
   const coreMenu = CoreMenu();

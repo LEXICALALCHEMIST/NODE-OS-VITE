@@ -29,7 +29,7 @@ export default function CoreSelect() {
     justify-content: center;
   `;
 
-  const buttons = ['NAXUS', 'SETTING', 'DOCUMENTS', 'EXTENSIONS'];
+  const buttons = ['NAXUS', 'SETTING', 'DOCUMENTS', 'EXTENSIONS', 'NODE: FS'];
 
   buttons.forEach(label => {
     const btn = document.createElement('div');

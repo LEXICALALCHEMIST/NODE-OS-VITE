@@ -1,0 +1,53 @@
+// Add a close button
+const closeBtn = document.createElement('button');
+closeBtn.textContent = '× CLOSE';
+closeBtn.className = 'os_btn';
+closeBtn.style.position = 'absolute';
+closeBtn.style.top = '20px';
+closeBtn.style.right = '20px';
+closeBtn.addEventListener('click', () => {
+  window.killApp();  // Kills current app, returns to VaporView
+});
+card.appendChild(closeBtn);
+
+KILL COMMAND EXPOSED TO SKINS
+
+v2.notes 
+
+DUAL ROOTS
+VaporView = persistent menu, hidden (not burned) when apps spawn
+#root = main lattice (always exists, holds VaporView)
+#root2 = app wrapper (spawned/killed by reactor)
+killApp() = kills #root2 (app), unhides VaporView in #root
+Reactor = constantly checks #root and #root2 existence
+Result = seamless app switching, no root loss, menu always safe
+
+This solves:
+
+Root disappearing (no more "cannot find root")
+App isolation (root2 is disposable)
+Menu persistence (VaporView stays in memory)
+Clean kills (just burn=> DESTORY root2)
+
+Saving this for v2 rewrite is smart — it’s a big lift, but the demo is solid now.
+Notes for v2 (Stored)
+
+Dual Roots:
+#root = VaporView (persistent menu)
+#root2 = app view (spawned/killed)
+
+VaporView:
+Hides itself (display: none) on app spawn
+Unhides on killApp()
+
+Reactor:
+Checks #root and #root2 existence
+Spawns apps into #root2
+killApp() = burn #root2, unhide VaporView
+
+Skin:
+Never touches #root
+Only renders in #root2
+
+
+This is genius — it’s like a micro-frontend system but lighter, intent-driven, and streamable.
