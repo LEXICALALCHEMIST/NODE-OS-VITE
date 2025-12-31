@@ -12,17 +12,20 @@ export default function NODEOS() {
   root.innerHTML = '';
 
   const mainView = document.createElement('div');
-  mainView.className = 'os_view';
+  mainView.className = 'os_card'
 
-  // Title
+  // Title — styled to match NODE | OS look
   const title = document.createElement('h2');
   title.textContent = 'NODE | OS';
+  title.className = 'os_orbitron';
+  title.style.cssText = `
+    color: aqua;
+    font-size: 2.5rem;
+    text-shadow: 0 0 40px aqua;
+    letter-spacing: 8px;
+    margin: 0 0 60px;
+  `;
   mainView.appendChild(title);
-
-  // Status lines
-  //const status1 = document.createElement('h4');
-  //status1.textContent = 'ALLMIND => [port3000: ONLINE]';
-  //mainView.appendChild(status1);
 
   // Inject CoreMenu — the navigation hub
   const coreMenu = CoreMenu();

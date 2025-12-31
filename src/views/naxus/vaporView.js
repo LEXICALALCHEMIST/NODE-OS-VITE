@@ -1,45 +1,43 @@
-// src/views/vapor/vapor.js — NAXUS view with CardLabel title + app catalog
+// src/views/vapor/vapor.js — NAXUS view with BACK button
 
-import burn from '../../utils/burn.js';  // Burn root first
-import { APP_CATALOG } from '../../reactor/appIndex.js';  // Catalog
-import { spawnApp } from '../../reactor/reactor.js';     // Spawner
-import CardLabel from '../../os-components/cardLabel/cardLabel.js';  // Import CardLabel
+import { APP_CATALOG } from '../../reactor/appIndex.js';
+import { spawnApp } from '../../reactor/reactor.js';
+import CardLabel from '../../os-components/cardLabel/cardLabel.js';
+import CoreMenu from '../../os-components/coreMenu.js';  // Import CoreMenu for back
 
 export default function VaporView() {
-  burn();  // Clear root for clean injection
-
   const root = document.getElementById('root');
   if (!root) return document.createElement('div');
 
-  const view = document.createElement('div');
-  view.className = 'os_view';
-  view.style.cssText = `
+  root.innerHTML = '';
+
+  const mainCard = document.createElement('div');
+  mainCard.className = 'os_card';
+  mainCard.style.cssText = `
+    max-width: 900px;
+    margin: 40px auto;
     padding: 40px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
   `;
 
-  // Use CardLabel instead of manual h2
-  const titleCard = CardLabel('NAXUS - ALLMIND');  // Pass title text
-  view.appendChild(titleCard);
+  // CardLabel title
+  const titleCard = CardLabel('NAXUS - ALLMIND');
+  mainCard.appendChild(titleCard);
 
-  const subtitle = document.createElement('p');
-  subtitle.textContent = '';
-  subtitle.style.cssText = 'font-size: 12px; margin: 10px 0;';
-  view.appendChild(subtitle);
-
-  // The app catalog card
-  const card = document.createElement('div');
-  card.className = 'os_card';
-  card.style.cssText = `
+  // App catalog grid
+  const appGrid = document.createElement('div');
+  appGrid.style.cssText = `
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
     justify-content: center;
-    padding: 30px 20px;
     margin-top: 40px;
+    width: 100%;
   `;
 
-  // Map catalog to app tiles
   APP_CATALOG.forEach(app => {
     const tile = document.createElement('div');
     tile.className = 'os_btn';
@@ -64,16 +62,35 @@ export default function VaporView() {
     tile.appendChild(name);
 
     tile.addEventListener('click', () => {
-      console.log('%cREACTOR: SPAWN APP -> ' + app.name, 
-        'color: aqua; background: #111; font-size: 12px; font-weight: bold; padding: 4px 8px; border-left: 4px solid grey;'
-      );
       spawnApp(app.id);
     });
 
-    card.appendChild(tile);
+    appGrid.appendChild(tile);
   });
 
-  view.appendChild(card);
+  mainCard.appendChild(appGrid);
 
-  return view;
+  // BACK BUTTON — returns to CoreMenu
+  const backBtn = document.createElement('button');
+  backBtn.textContent = '← BACK';
+  backBtn.className = 'os_btn';
+  backBtn.style.cssText = `
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 9999;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  `;
+  backBtn.addEventListener('click', () => {
+    console.log('%cNAXUS → BACK to CoreMenu', 'color: aqua; font-weight: bold;');
+    root.innerHTML = '';  // Clear current view
+    const coreMenu = CoreMenu();
+    root.appendChild(coreMenu);
+  });
+  root.appendChild(backBtn);
+
+  root.appendChild(mainCard);
+
+  return mainCard;
 }

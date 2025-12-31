@@ -16,6 +16,13 @@ export const APP_CATALOG = [
     componentName: "NotesSkin"  // Exact name expected from remote script
   },
   {
+    id: "weather-001",
+    name: "Weather",
+    icon: "☁",
+    hub: "http://localhost:3000/apps/weather/weather_os.js",  // Relative path — served by ALL-MIND
+    componentName: "WeatherSkin"         // Exact global name in remote skin
+  },
+  {
     id: "agent-001",
     name: "Agent Workspace",
     icon: "◉",

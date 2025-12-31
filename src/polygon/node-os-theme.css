@@ -67,9 +67,9 @@ body.lattice::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: 
-    linear-gradient(rgba(0, 255, 159, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 159, 0.05) 1px, transparent 1px);
+  background-image: 
+  linear-gradient(rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0, 251, 255, 0.15) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
   z-index: -1;
@@ -173,7 +173,7 @@ body.lattice::before {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   border: 1px solid #00ff9f22;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 255, 234, 0.15);
@@ -183,7 +183,7 @@ body.lattice::before {
   color: aqua;
   font-family: monospace;
   font-size: 1rem; /* Half size of standard text */
-  padding: 10px 20px;
+  padding: 5px 10px;
   text-align: center;
   cursor: pointer;
   border: 1px solid aqua; /* aqua with transparency */

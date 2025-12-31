@@ -4,7 +4,7 @@ export default function CardLabel(titleText = 'APP') {
   const labelContainer = document.createElement('div');
   labelContainer.style.cssText = `
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto 40px;
     text-align: center;
   `;
@@ -25,16 +25,17 @@ export default function CardLabel(titleText = 'APP') {
   labelBox.textContent = titleText;
   labelBox.style.cssText = `
     background: #000;
+    width: 100%;
     color: aqua;
-    font-family: monospace;
     font-size: 18px;
-    padding: 10px 20px;
-    border: 2px solid aqua;
+    padding: 10px;
+    border: 1px solid aqua;
     border-radius: 12px;
     display: inline-block;
     text-shadow: 0 0 20px aqua;
     letter-spacing: 4px;
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    
   `;
   labelContainer.appendChild(labelBox);
 

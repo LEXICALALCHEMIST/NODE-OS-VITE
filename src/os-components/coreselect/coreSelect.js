@@ -2,6 +2,7 @@
 
 import burn from '../../utils/burn.js';  // Clear root
 import VaporView from '../../views/naxus/vaporView.js';  // Add other views later
+import DoczView from '../../views/docz/doczView.js';
 import CardLabel from '../cardLabel/cardLabel.js';  // Import CardLabel
 
 
@@ -29,8 +30,9 @@ export default function CoreSelect() {
     justify-content: center;
   `;
 
-  const buttons = ['NAXUS', 'SETTING', 'DOCUMENTS', 'EXTENSIONS', 'NODE: FS'];
+  const buttons = ['NAXUS', 'SETTING', 'DOCUMENTS', 'SYSTEM', 'ADAPTERS', 'TERMINAL'];
 
+  
   buttons.forEach(label => {
     const btn = document.createElement('div');
     btn.textContent = label;
@@ -47,6 +49,8 @@ export default function CoreSelect() {
       let view;
       if (label === 'NAXUS') {
         view = VaporView();
+      } else if (label === 'DOCUMENTS') {
+        view = DoczView();  // Launch Documents view
       } else {
         // Placeholder for other views
         view = document.createElement('div');

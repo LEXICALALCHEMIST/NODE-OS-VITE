@@ -8,8 +8,7 @@ function Boot() {
     console.error('FATAL: #root not found');
     return;
   }
-
-  root.innerHTML = '';
+  root.innerHTML = ''
 
   const logContainer = document.createElement('div');
   logContainer.id = 'boot-log';

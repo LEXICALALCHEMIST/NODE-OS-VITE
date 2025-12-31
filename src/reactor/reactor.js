@@ -31,10 +31,10 @@ export const spawnApp = async (appId) => {
       if (typeof Skin === 'function') {
         Skin(); // Just call it — pure DOM
         // AQUA — Reactor spawn success
-        console.log('%cREACTOR Spawns: ' + app.name + ' —> ROOT.DOM.node_os', 'color: aqua; font-weight: bold; font-family: monospace; font-size: 14px; background: #000; padding: 6px 12px; border-radius: 6px;');
+        console.log('%cREACTOR Spawns: ' + app.name + ' —> @root', 'color: aqua; font-weight: bold; font-family: monospace; font-size: 14px; background: #000; padding: 6px 12px; border-radius: 6px;');
 
         // PURPLE — ALL-MIND reactor + matrix sync confirmation
-        console.log('%cALL-MIND → ' + app.name + ' N-A-X Sync Sucess', 'color: #b388ff; font-weight: bold; font-family: monospace; font-size: 14px; background: #000; padding: 6px 12px; border-radius: 6px; text-shadow: 0 0 15px #b388ff;');
+        console.log('%cALL-MIND → ' + app.name + ' N-A-X Sync Sucess', 'color: #b388ff; font-weight: bold; font-family: monospace; font-size: 10px; background: #000; padding: 2px 8px; border-radius: 6px; text-shadow: 0 0 15px #b388ff;');
         resolve({
           destroy: () => document.querySelector('#calculator-os')?.remove()
         });
@@ -64,17 +64,30 @@ export const spawnApp = async (appId) => {
     }
   });
 
-  // NEW: KILL function — exposed to all skins
-  function killApp() {
-    console.log('%cKILL COMMAND — App terminated', 'color: #ff0044; font-weight: bold; background: #000; padding: 6px 12px; border-radius: 6px;');
-    burn();  // Burn root
-    // Re-inject VaporView (the hub)
-    const vapor = VaporView();
-    const root = document.getElementById('root');
-    if (root) {
-      root.appendChild(vapor);
-    }
-    console.log('%cVAPOR VIEW — Re-injected as safe hub', 'color: aqua; font-weight: bold;');
-  }
+// Kill command to reset app state
+// Usage: window.killApp() from console on dom from any app as ive wired root conetext to a shadow dom
+    function killApp() {
+      console.log('%cKILL COMMAND — App terminated', 'color: #ff0044; font-weight: bold; background: #000; padding: 6px 12px; border-radius: 6px;');
 
-window.killApp = killApp;
+      // Remove all child nodes from body except #root
+      const root = document.getElementById('root');
+      if (root) {
+        // Keep #root, clear its children
+        root.innerHTML = '';
+      }
+
+      // Optional: remove any stray app containers
+      document.querySelectorAll('div[id^="calc-"], div[id^="notes-"]').forEach(el => el.remove());
+
+      // Re-inject VaporView
+      const vapor = VaporView();
+      if (root) {
+        root.appendChild(vapor);
+      } else {
+        document.body.appendChild(vapor);
+      }
+
+      console.log('%cVAPOR VIEW — Re-injected as safe hub', 'color: aqua; font-weight: bold;');
+    }
+
+    window.killApp = killApp;
