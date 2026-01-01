@@ -79,8 +79,9 @@ export default function VaporView() {
     top: 40px;
     left: 20px;
     z-index: 9999;
-    font-size: 1.2rem;
+    font-size: 12px;
     padding: 10px 20px;
+    font-family: orbitron, monospace, sans-serif;
   `;
   backBtn.addEventListener('click', () => {
     console.log('%cNAXUS → BACK to CoreMenu', 'color: aqua; font-weight: bold;');

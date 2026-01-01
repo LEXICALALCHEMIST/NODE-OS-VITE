@@ -18,7 +18,7 @@ function Boot() {
     padding: 20px;
     background: #000;
     color: aqua;
-    font-family: monospace;
+    font-family: orbitron, monospace, sans-serif;
     font-size: 10px;
     line-height: 1.6;
     text-align: left;

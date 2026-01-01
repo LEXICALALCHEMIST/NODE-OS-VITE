@@ -14,7 +14,7 @@ export default function CoreSelect() {
   title.textContent = 'CORE SELECT';
   title.style.cssText = `
     color: aqua;
-    font-family: monospace;
+    font-family: orbitron, monospace, sans-serif;
     font-size: 1.6rem;
     margin-bottom: 30px;
     text-shadow: 0 0 20px white;

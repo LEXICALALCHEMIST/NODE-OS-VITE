@@ -181,8 +181,8 @@ body.lattice::before {
 /* Core button — small, mint/aqua glow, monospace */
 .os_btn {
   color: aqua;
-  font-family: monospace;
-  font-size: 1rem; /* Half size of standard text */
+  font-family: orbitron, monospace, sans-serif;
+  font-size: 14px; /* Half size of standard text */
   padding: 5px 10px;
   text-align: center;
   cursor: pointer;
