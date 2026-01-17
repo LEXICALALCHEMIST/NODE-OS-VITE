@@ -24,7 +24,7 @@ export default function VaporView() {
   `;
 
   // CardLabel title
-  const titleCard = CardLabel('NAXUS - ALLMIND');
+  const titleCard = CardLabel('[ALL-MIND]');
   mainCard.appendChild(titleCard);
 
   // App catalog grid
@@ -42,8 +42,8 @@ export default function VaporView() {
     const tile = document.createElement('div');
     tile.className = 'os_btn';
     tile.style.cssText = `
-      width: 90px;
-      height: 60px;
+      width: 70px;
+      height: 50px;
       display: grid;
       place-items: center;
       gap: 8px;

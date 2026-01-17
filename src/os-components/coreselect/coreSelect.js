@@ -30,7 +30,7 @@ export default function CoreSelect() {
     justify-content: center;
   `;
 
-  const buttons = ['NAXUS', 'SETTING', 'DOCUMENTS', 'SYSTEM', 'ADAPTERS', 'TERMINAL'];
+  const buttons = ['ALL-MIND', 'SETTINGS', 'DOCUMENTS', 'SYSTEM', 'ADAPTERS', 'TERMINAL'];
 
   
   buttons.forEach(label => {
@@ -47,7 +47,7 @@ export default function CoreSelect() {
       if (!root) return;
 
       let view;
-      if (label === 'NAXUS') {
+      if (label === 'ALL-MIND') {
         view = VaporView();
       } else if (label === 'DOCUMENTS') {
         view = DoczView();  // Launch Documents view

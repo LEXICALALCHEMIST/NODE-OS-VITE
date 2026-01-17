@@ -1,5 +1,7 @@
 # NODE-OS-VITE
-Final Protoype for DEMO of NODE|OS / ALLMIND
+Final Protoype for DEMO of NODE|OS / ALLMIND 
+
+BETA : IN DEVELOPMENT
  
  <img src="assets/image.jpg" alt="NODE OS Logo" width="200" height="200px"/> <>
  ---

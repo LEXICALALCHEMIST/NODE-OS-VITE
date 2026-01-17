@@ -1,4 +1,5 @@
 // src/views/docz/doczView.js — Documents view with placeholder file grid
+import CoreMenu from '../../os-components/coreMenu.js';  // Import CoreMenu for back
 
 export default function DoczView() {
   const root = document.getElementById('root');
@@ -100,7 +101,27 @@ export default function DoczView() {
 
   card.appendChild(grid);
   container.appendChild(card);
-  root.appendChild(container);
+    // BACK BUTTON — returns to CoreMenu
+    const backBtn = document.createElement('button');
+    backBtn.textContent = '← BACK';
+    backBtn.className = 'os_btn';
+    backBtn.style.cssText = `
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      z-index: 9999;
+      font-size: 12px;
+      padding: 10px 20px;
+      font-family: orbitron, monospace, sans-serif;
+    `;
+    backBtn.addEventListener('click', () => {
+      console.log('%cNAXUS → BACK to CoreMenu', 'color: aqua; font-weight: bold;');
+      root.innerHTML = '';  // Clear current view
+      const coreMenu = CoreMenu();
+      root.appendChild(coreMenu);
+    });
+    root.appendChild(backBtn);
+    root.appendChild(container);
 
   return container;
 }

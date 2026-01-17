@@ -16,7 +16,7 @@ export default function CardLabel(titleText = 'APP') {
     background: aqua;
     border-radius: 2px;
     margin-bottom: 12px;
-    box-shadow: 0 0 15px aqua;
+    box-shadow: 0 0 18px aqua;
   `;
   labelContainer.appendChild(topBar);
 
@@ -25,10 +25,11 @@ export default function CardLabel(titleText = 'APP') {
   labelBox.textContent = titleText;
   labelBox.style.cssText = `
     background: #000;
+    font-family: 'Orbitron', sans-serif;
     width: 100%;
     color: aqua;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 12px;
+    padding: 2px;
     border: 1px solid aqua;
     border-radius: 12px;
     display: inline-block;

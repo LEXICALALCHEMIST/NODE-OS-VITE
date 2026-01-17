@@ -23,8 +23,15 @@ export const APP_CATALOG = [
     componentName: "WeatherSkin"         // Exact global name in remote skin
   },
   {
+   id: "ARCH-001",
+   name: "Archon",
+   icon: "▣",
+   hub: "http://localhost:3000/apps/ARCHON/archonMain.js",  // Direct stream from ALL-MIND
+   componentName: "ArchonSkin"  // Exact exported/global name in remote script
+  },
+  {
     id: "agent-001",
-    name: "Agent Workspace",
+    name: "Agent-WS",
     icon: "◉",
     hub: "local",  // or future remote
     componentName: "AgentWorkspace"
